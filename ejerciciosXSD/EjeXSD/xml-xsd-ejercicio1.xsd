@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="alumno">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="nombre" type="xs:string"/>
+                <xs:element name="direccion">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="calle"></xs:element>
+                            <xs:element name="numero" type="restriccionNumero"></xs:element>
+                            <xs:element name="ciudad"></xs:element>
+                            <xs:element name="provincia"></xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="telefono" type="restriccionTelefono"/>
+            </xs:sequence>
+            <xs:attribute name="dni" type="numDni"/>
+        </xs:complexType>
+
+        
+    </xs:element>
+
+    <xs:simpleType name="numDni">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="\d{8}[A-Z]"></xs:pattern>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="restriccionNumero">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="\d{1,4}[A-Z]?"></xs:pattern>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="restriccionTelefono">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="\d{9}"></xs:pattern>
+        </xs:restriction>
+    </xs:simpleType>
+
+    
+</xs:schema>

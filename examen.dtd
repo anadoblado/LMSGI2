@@ -1,0 +1,18 @@
+<!ELEMENT simpson (per_principal+,personaje*,springfield?)>
+<!ELEMENT per_principal (#PCDATA)>
+<!ATTLIST per_principal codigo ID #REQUIRED>
+<!ENTITY % caracteristicas "nombre CDATA #REQUIRED 
+                            color_pelo CDATA #IMPLIED 
+                            edad CDATA #IMPLIED">
+<!ATTLIST per_principal %caracteristicas;>
+<!ENTITY dibujos "Los Simpsons">
+<!ELEMENT personaje (actividad |vivo|amigos)*>
+<!ATTLIST personaje %caracteristicas;>
+<!ELEMENT actividad (#PCDATA)>
+<!ELEMENT vivo (#PCDATA|vivo|muerto)*>
+<!ELEMENT amigos EMPTY>
+<!ATTLIST amigos colegas NMTOKENS #IMPLIED
+                 compañeros NMTOKENS #IMPLIED
+                 relacion IDREF #REQUIRED>
+<!ELEMENT springfield (#PCDATA)>
+<!ATTLIST springfield ciudad CDATA #FIXED "localizado">

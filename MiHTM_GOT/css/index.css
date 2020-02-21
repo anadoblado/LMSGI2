@@ -1,0 +1,120 @@
+#divPrincipal {
+    width: 90%;
+    margin: 0 auto;
+
+    
+}
+body{
+    
+    background-image: url("../Imagen/fondo-mitchell.jpg");
+    background-color: transparent;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+}
+
+#banner {
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+    text-align: center;
+}
+
+#banner img {
+    width: 70%;
+}
+
+#otroDiv {
+    width: 200px;
+    height: 200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.contenedorTarjetas {
+    margin-top: 30px;
+    width: 100%;
+}
+.contenedorTarjetasDividir
+{
+    margin-top: 5px;
+    width: 100%;
+}
+
+.tarjeta {
+    border: 1px solid #000000;
+    padding: 1%;
+    display: inline-block;
+    background-color: rgba(255, 255, 255, 0.534);
+}
+.tarjeta2{
+    margin-top: 1%;
+    border-bottom-color:1px solid gray;
+    padding: 2%;
+    display: inline-block;
+}
+.tarjeta3{
+    margin-top: 5%;
+    padding: 1%;
+    text-align: center;
+}
+.tarjetaUnMedio {
+    width: 45%
+}
+
+.tarjetaUnTercio {
+    width: 30%;
+}
+
+.tarjetaUnCuarto {
+    width: 22%;
+}
+
+.tarjetaUnQuinto{
+    width: 17%;
+}
+.tarjetaTexto{
+    width: 100%;
+    font-style: italic;
+    font-family:'Cinzel',serif;
+    word-wrap: break-word;
+    font-size: 100%;
+    text-align: justify;
+    font-weight: bolder;
+    
+}
+h1{
+    font-style: oblique;
+    font-family: 'Cinzel', serif;
+    font-weight: bolder;
+    text-align: center;
+}
+.tarjetaTexto2{
+    font-style: oblique;
+    font-family: 'Cinzel', serif;
+    font-weight: bolder;
+    text-align: center;
+    font-size: 120%;
+    
+}
+
+.imagenAnchoCompleto {
+    width: 100%;
+    height: 80%;
+}
+ul li{
+    list-style-type: lower-roman;
+}
+a{
+    color: rgb(5, 51, 138);
+    
+}
+a:hover{
+    color: rgba(9, 58, 131, 0.788);
+    font-weight: bold;
+    text-decoration:overline;
+    cursor:pointer;
+}
+
+

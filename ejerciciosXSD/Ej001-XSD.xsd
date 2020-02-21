@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="marvel" type="tipoMarvel"/>
+        <xs:complexType name="tipoMarvel">
+            <xs:sequence>
+                <xs:element name="superheroe" type="xs:string" maxOccurs="unbounded"/>
+                <xs:element name="supervillano" type="xs:string" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    
+    <xs:simpleType name="longitudMiniCaracter">
+        <xs:restriction base="xs:string">
+            <xs:minLength value="1">
+            </xs:minLength>
+        </xs:restriction>
+    </xs:simpleType>
+
+</xs:schema>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE miedos SYSTEM "miedos.dtd">
+<miedos fobias="traumas">
+    <tipo_miedo nombre="aracnobofobia" a_que="arañas" quien_lo_trata="a1234">
+        <persona edad="39" nombre_per="Juan" direccion="calle Luis de Armiñan" paciente_de="a1234" tratamiento="si"></persona>
+    </tipo_miedo>
+    <tipo_miedo nombre="zoofobia" a_que="animales">primera visita
+        <persona edad="31" nombre_per="Inma" direccion="avenida de Andalucia" paciente_de="a2345" tratamiento="no">primera visita &recuperables;</persona>
+    </tipo_miedo>
+    <profesionales nombre_prof="Lucia Torralvo" titulacion="Licenciada en psicologia" n_colegiado="a1234"></profesionales>
+    <profesionales nombre_prof="Estela Buenaventura" n_colegiado="a2345"></profesionales>
+</miedos>

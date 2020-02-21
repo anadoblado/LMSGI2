@@ -1,0 +1,25 @@
+<!ELEMENT tipo_examen_electricas (energiaLimpia+, energiaConDesechos?)>
+<!ENTITY % lugar " pais CDATA #FIXED 'Spain'">
+<!ATTLIST tipo_examen_electricas %lugar;>
+<!ENTITY % caracteristicacomunes "nombre NMTOKENS #REQUIRED
+                                  produccion (100|200|300|400|500) #REQUIRED
+                                  localidad NMTOKENS #REQUIRED
+                                  provincia ID #REQUIRED
+                                  cerca IDREF #IMPLIED">
+ <!ELEMENT energiaLimpia (hidraulica | eolica | termica)*>  
+ <!ELEMENT hidraulica (#PCDATA)>
+ <!ATTLIST hidraulica %caracteristicacomunes;
+                    
+                        rio CDATA #REQUIRED>
+ <!ELEMENT eolica (#PCDATA)>
+ <!ATTLIST eolica %caracteristicacomunes;
+                    cantidad NMTOKENS #REQUIRED>
+ <!ELEMENT termica (#PCDATA)>
+ <!ATTLIST termica %caracteristicacomunes;
+                    combustible CDATA #IMPLIED>
+ <!ELEMENT energiaConDesechos (#PCDATA|nuclear)*>   
+ <!ELEMENT nuclear (#PCDATA)>
+  <!ENTITY combustible "Uranio">
+
+ 
+                            

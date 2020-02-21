@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tipo_examen_electricas SYSTEM "tipo_examen_electricas.dtd">
+<tipo_examen_electricas pais="Spain">
+   <energiaLimpia>
+         <hidraulica nombre="Presa de Iznajar" produccion="400" localidad="Cuevas de San Marcos" provincia="Malaga" cerca="Cordoba" rio="Genil">Trabaja a media potencia</hidraulica>
+         <eolica nombre="Monte Negro" produccion="200" localidad="Villanueva de Algaidas" provincia= "Cordoba" cantidad="345"></eolica>
+         <termica nombre="Oleoterm"  produccion="400" localidad="Estepa" provincia="Sevilla"></termica>
+    </energiaLimpia>
+    <energiaConDesechos>
+        <nuclear >lo que mas usa es &combustible;</nuclear>
+    </energiaConDesechos>
+</tipo_examen_electricas>

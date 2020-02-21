@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE simpson SYSTEM "examen.dtd">
+<simpson>
+    <per_principal codigo="a" nombre="Homer" color_pelo="ninguno" edad="50"></per_principal>
+    <personaje nombre="Moe" color_pelo="gris">
+        <actividad>tabernero</actividad>
+        <vivo>vivo</vivo>
+        <amigos relacion="a" />
+    </personaje>
+    <springfield ciudad="localizado">&dibujos;</springfield>
+</simpson>

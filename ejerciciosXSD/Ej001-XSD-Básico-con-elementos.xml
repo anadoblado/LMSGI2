@@ -1,0 +1,8 @@
+<!-- Crea un fichero XSD que valide el siguiente XML --> 
+<marvel>
+    <superheroe>Hulk</superheroe>
+    <superheroe>Thor</superheroe>
+    <superheroe>Iron Man</superheroe>
+    <supervillano>Cráneo rojo</supervillano>
+    <supervillano>Thanos</supervillano>
+</marvel>

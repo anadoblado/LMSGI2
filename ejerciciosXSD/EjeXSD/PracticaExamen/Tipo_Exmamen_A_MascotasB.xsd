@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="tiendaMascotas" type="tipoTienda"/>
+
+    <xs:complexType name="tipoTienda">
+        <xs:all>
+            <xs:element name="reptiles" type="tipoReptil"/>
+            <xs:element name="mamiferos" type="tipoMamiferos"/>
+            <xs:element name="unidadesMedida" type="Medidas"/>
+            <xs:element name="direccion" type="tipoDireccion"/>
+            <xs:element name="clientes" type="tipoClientes"/>
+        </xs:all>
+        <xs:attribute name="nombre" type="xs:string"/>
+    </xs:complexType>
+
+    <xs:complexType name="tipoReptil" mixed="true">
+        <xs:sequence>
+            <xs:element name="reptil" maxOccurs="unbounded">
+                <xs:complexType mixed="true">
+                    <xs:all>
+                        <xs:element name="peso" type="tipoPeso" minOccurs="0"/>
+                        <xs:element name="longitud" type="tipoLongitud" minOccurs="0"/>
+                        <xs:element name="edad" type="tipoUnidad" minOccurs="0"/>
+                    </xs:all>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="tipoPeso">
+        <xs:simpleContent>
+            <xs:extension base="valoresDerivado">
+                <xs:attribute name="unidadMedida" type="Medida"/>
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+
+    <xs:simpleType name="valoresDerivado">
+            <xs:restriction base="tipoLongitudPrimitivo">
+                    <xs:minInclusive value="1" />
+                    <xs:maxInclusive value="200" />
+                  </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="tipoLongitudPrimitivo">
+        <xs:restriction base="xs:positiveInteger">
+            <xs:minInclusive value="1"/>
+                <xs:maxInclusive value="800"/>
+            </xs:restriction>
+    </xs:simpleType>
+
+    <xs:complexType name="tipoLongitud">
+        <xs:simpleContent>
+            <xs:extension base="tipoLongitudPrimitivo">
+                <xs:attribute name="unidadMedida" type="Medida"/>
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+
+    <xs:complexType name="tipoUnidad" mixed="true">
+        <xs:attribute name="unidadMedida" type="Medida"/>
+    </xs:complexType>
+
+    <xs:simpleType name="Medida">
+        <xs:union memberTypes="medida-longitud medida-tiempo"/>
+    </xs:simpleType>
+
+    <xs:simpleType name="medida-longitud">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="mm"/>
+            <xs:enumeration value="cm"/>
+            <xs:enumeration value="dm"/>
+            <xs:enumeration value="m"/>
+            <xs:enumeration value="Kg"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="medida-tiempo">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="dias"/>
+            <xs:enumeration value="semanas"/>
+            <xs:enumeration value="meses"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="Medidas">
+        <xs:list itemType="listaMedidas"/>
+    </xs:simpleType>
+
+    <xs:simpleType name="listaMedidas">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="mm"/>
+            <xs:enumeration value="cm"/>
+            <xs:enumeration value="dm"/>
+            <xs:enumeration value="m"/>
+            <xs:enumeration value="kg"/>
+            <xs:enumeration value="dias"/>
+            <xs:enumeration value="semanas"/>
+            <xs:enumeration value="meses"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:complexType name="tipoMamiferos" mixed="true">
+        <xs:sequence>
+            <xs:element name="mamifero" type="tipoMamifero" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="tipoMamifero" mixed="true">
+        <xs:sequence>
+            <xs:element name="nombre">
+                <xs:complexType>
+                    <xs:attribute name="valor" type="tipoValor"/>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="raza">
+                <xs:complexType>
+                    <xs:choice>
+                        <xs:element name="perro" type="xs:string"/>
+                        <xs:element name="orca" type="xs:string"/>
+                        <xs:element name="delfin" type="xs:string"/>
+                    </xs:choice>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="descripcion" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="tipoDireccion" mixed="true">
+        <xs:sequence>
+            <xs:element name="postal" type="xs:string"/>
+            <xs:element name="telefono" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="tipoClientes" mixed="true">
+        <xs:all>
+            <xs:element name="cliente" type="derivadoDireccion"/>
+        </xs:all>
+    </xs:complexType>
+
+    <xs:complexType name="derivadoDireccion">
+        <xs:complexContent mixed="true">
+            <xs:extension base="tipoDireccion">
+                <xs:sequence>
+                    <xs:element name="email" type="xs:string"/>
+                </xs:sequence>
+                <xs:attribute name="nombre" type="xs:string"/>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <xs:simpleType name="tipoValor">
+        <xs:restriction base="xs:string">
+            <xs:pattern value=".*"/>
+        </xs:restriction>
+    </xs:simpleType>
+</xs:schema>

@@ -1,0 +1,161 @@
+#divPrincipal {
+    width: 90%;
+    margin: 0 auto;
+    
+}
+body{
+    
+    background-image: url("../Imagen/fondo-mitchell.jpg");
+    background-color: transparent;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+}
+
+#banner {
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+    text-align: center;
+}
+
+#banner img {
+    width: 40%;
+}
+
+
+#menu {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    width: 200px;
+    background-color: #f1f1f1;
+    border: 1px solid #555;
+  }
+
+  
+  
+  #menu li a {
+    display: block;
+    color: #000;
+    padding: 8px 16px;
+    text-decoration: none;
+  }
+  
+  #menu li {
+    text-align: center;
+    border-bottom: 1px solid #555;
+  }
+  
+  #menu li:last-child {
+    border-bottom: none;
+  }
+  
+  #menu li a.active {
+    background-color: rgb(76, 152, 175);
+    color: white;
+  }
+  
+  #menu li a:hover:not(.active) {
+    background-color: #555;
+    color: white;
+  }
+
+  
+.contenedorTarjetas {
+    margin-top: 30px;
+    width: 100%;
+}
+.contenedorTarjetasDividir
+{
+    margin-top: 5px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.tarjeta {
+    border: 1px;
+    padding: 1%;
+    display: inline-block;
+    background-color: rgba(255, 255, 255, 0.534);
+    text-align: justify;
+}
+
+.tarjetaUnMedio {
+    width: 45%
+}
+
+.tarjetaUnTercio {
+    width: 26%;
+    text-align:justify;
+}
+
+.tarjetaDosTercios{
+    width: 69%;
+}
+
+.imagenAnchoCompleto {
+    width: 75%;
+
+}
+.contenedorTarjetasDividir
+{
+    margin-top: 5px;
+    width: 100%;
+}
+h1{
+    font-style: oblique;
+    font-family: 'Cinzel', serif;
+    font-weight: bolder;
+    text-align: center;
+}
+
+.tarjeta2{
+    margin-top: 1%;
+    border-bottom-color:1px solid gray;
+    padding: 2%;
+    display: inline-block;
+}
+.tarjeta3{
+    margin-top: 5%;
+    padding: 10%;
+    text-align: center;
+}
+.tarjeta4{
+    text-align: center;
+}
+
+.tarjetaTexto{
+    width: 100%;
+    font-style: italic;
+    font-family:'Cinzel',serif;
+    word-wrap: break-word;
+    font-size: 100%;
+    text-align: justify;
+    font-weight: bolder;
+    
+}
+.tarjetaTexto2{
+    font-style: normal;
+    font-family: 'Josefin Slab', serif;
+    font-size: 0.8cm;
+}
+
+li{
+    text-align: justify;
+}
+
+.tarjetaTexto3{
+    font-style: normal;
+    font-family: 'Josefin Slab', serif;
+    font-size: 0.6cm;
+    text-align: justify;
+}
+
+span{
+    font-style: oblique;
+    font-weight: bold;
+}
+
+  

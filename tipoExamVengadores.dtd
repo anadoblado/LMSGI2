@@ -1,0 +1,24 @@
+<!NOTATION JPG SYSTEM "image/jpeg">
+<!NOTATION GIF SYSTEM "image/gif">
+<!NOTATION PNG SYSTEM "image/png">
+
+<!ELEMENT universomarvel (heroes?, villanos+ , peliculas)+>
+<!ELEMENT heroes (vengadores | otros)*>
+<!ENTITY % esteUniverso "universo CDATA #FIXED 'tierra51'">
+<!ATTLIST universomarvel %esteUniverso; >
+<!ENTITY % caracteristicas " nombre CDATA #REQUIRED
+                             poder CDATA #IMPLIED">
+ <!ELEMENT vengadores (#PCDATA)>
+<!ATTLIST vengadores %caracteristicas;
+                     amigos ID #REQUIRED>
+<!ELEMENT otros EMPTY>                     
+<!ATTLIST otros %caracteristicas;
+                     aparece IDREFS #REQUIRED>
+<!ELEMENT villanos (#PCDATA)>
+<!ATTLIST villanos %caracteristicas;
+                     imagen NOTATION (GIF | JPG | PNG) #IMPLIED>
+<!ELEMENT peliculas (#PCDATA | pelicula)*>
+<!ELEMENT pelicula (#PCDATA)>
+<!ATTLIST pelicula year (2012|2013|2014|2015|2016|2017|2018|2019) #REQUIRED>
+
+

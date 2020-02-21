@@ -1,0 +1,27 @@
+<!NOTATION JPG SYSTEM "image/jpeg">
+<!NOTATION GIF SYSTEM "image/gif">
+<!NOTATION PNG SYSTEM "image/png">
+
+<!ELEMENT miedos (tipo_miedo+, profesionales+, fuma?)>
+<!ENTITY % fobos "fobias CDATA #FIXED 'traumas'">
+<!ATTLIST miedos %fobos;>
+<!ENTITY % comunes_miedos "nombre CDATA #REQUIRED
+                           a_que CDATA #REQUIRED
+                           quien_lo_trata IDREFS #IMPLIED">
+ <!ELEMENT tipo_miedo (#PCDATA|persona)*>                          
+<!ATTLIST tipo_miedo %comunes_miedos;>
+<!ENTITY % comunes_personas "edad CDATA #REQUIRED
+                             nombre_per CDATA #REQUIRED
+                             direccion NMTOKENS #IMPLIED
+                             paciente_de IDREF #REQUIRED
+                             tratamiento (si|no) #REQUIRED">
+<!ELEMENT persona (#PCDATA|hijos)*>
+<!ELEMENT hijos EMPTY>
+<!ATTLIST persona %comunes_personas;>
+<!ENTITY % comunes_prof "nombre_prof NMTOKENS #REQUIRED
+                         titulacion NMTOKENS #IMPLIED
+                         n_colegiado ID #REQUIRED">
+<!ELEMENT profesionales (#PCDATA)>
+<!ATTLIST profesionales %comunes_prof;>
+<!ENTITY recuperables "siguiendo_tratamiento">
+<!ELEMENT fuma EMPTY>

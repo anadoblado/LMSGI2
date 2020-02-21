@@ -1,0 +1,35 @@
+<coches>
+    <modelo mod="556">
+        <modelos_relacionados></modelos_relacionados>
+        <descripcion>No disponible</descripcion>
+        <motor></motor>
+    </modelo>
+    <modelo mod="555">
+        <modelos_relacionados>444,556</modelos_relacionados>
+        <descripcion>Este modelo tiene un motor de 1.998cc 16v.
+            de cuatro cilindros, que desarrolla una potencia de 128 CV.
+            Dispone de cambio manual...el consumo medio de este monovolumen es 11
+            a los 100 km. El precio base es de 2.225.000
+        </descripcion>
+        <motor>556</motor>
+    </modelo>
+    <modelo mod="557">
+        <modelos_relacionados></modelos_relacionados>
+        <descripcion></descripcion>
+        <motor></motor>
+    </modelo >
+    <modelo mod="154">
+        <modelos_relacionados></modelos_relacionados>
+        <descripcion></descripcion>
+        <motor></motor>
+    </modelo>
+    <modelo mod="444">
+        <modelos_relacionados>555,154</modelos_relacionados>
+        <descripcion>Este modelo tiene un motor de 2.ooocc 16v.
+                de cuatro cilindros, que desarrolla una potencia de 128 CV.
+                Dispone de cambio manual...el consumo medio de este monovolumen es 11
+                a los 100 km. El precio base es de 2.500.000</descripcion>
+        <motor>556</motor>
+    </modelo>
+
+</coches>

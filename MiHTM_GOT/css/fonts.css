@@ -1,0 +1,9 @@
+@charset 'UTF-8';
+
+@font-face
+{
+    font-family: 'FontCinzel',serif;
+    src: url('fonts/Cinzel-Regular.ttf');
+    font-weight: normal;
+    font-style: normal;
+}

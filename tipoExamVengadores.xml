@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE universomarvel SYSTEM "tipoExamVengadores.dtd">
+<universomarvel universo='tierra51'>
+    <heroes>
+        <vengadores nombre="IronMan" poder="inteligencia" amigos="CapitanAmerica"></vengadores>
+        <vengadores nombre="CapitanAmerica" poder="liderazgo" amigos="IronMan"></vengadores>
+        <otros nombre="CapitanaMarvel" poder="todos" aparece="CapitanAmerica"></otros>
+
+    </heroes>
+    <villanos nombre="Thanos" poder="Guantelete">
+
+    </villanos>
+    <peliculas>tenemos varias sagas relacionadas
+        <pelicula year="2015">
+            civil war
+        </pelicula>
+    </peliculas>
+</universomarvel>

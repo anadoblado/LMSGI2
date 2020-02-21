@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="factura">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="datos_empresa" type="datosEmp"/>   
+                <xs:element name="datos_cliente">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="nombre" type="xs:string"/>
+                            <xs:element name="poblacion">
+                                <xs:complexType mixed="true">
+                                    <xs:attribute name="cod_postal"/>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="provincia" type="xs:string"/>
+                            <xs:element name="dir_env" type="xs:string"/>
+                        </xs:sequence>
+                        <xs:attribute name="n_cli" type="codigoCliente"/>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="datos_factura">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="fecha" type="modoFecha"/>
+                            <xs:element name="linea" maxOccurs="unbounded">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="ref"/>
+                                        <xs:element name="desc" type="xs:string"/>
+                                        <xs:element name="cant"/>
+                                        <xs:element name="precio"/>
+                                        <xs:element name="importe"/>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="base"/>
+                            <xs:element name="cuota_iva"/>
+                            <xs:element name="total"/>
+                        </xs:sequence>
+                        <xs:attribute name="n_ped" type="codigoPedido"/>
+                        <xs:attribute name="iva"/>
+                        <xs:attribute name="f_pago"/>
+                        <xs:attribute name="moneda"/>
+                    </xs:complexType>
+                </xs:element>                            
+            </xs:sequence>
+            <xs:attribute name="n_fac" type="codigoFactura"></xs:attribute>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:simpleType name="codigoFactura">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="[f]\d{3}"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:simpleType name="codigoCliente">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="[a-z][1-9]{3}"></xs:pattern>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="modoFecha">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="\d{2}[-]\d{2}[-]\d{4}"></xs:pattern>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:complexType name="datosEmp" >
+        <xs:sequence>
+            <xs:element name="nombre"/>
+            <xs:element name="poblacion"  >
+                <xs:complexType mixed="true">
+                    <xs:attribute name="cod_postal" type="formaCodigo"></xs:attribute>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="provincia" type="xs:string"/>
+            <xs:element name="dir" type="xs:string"/>
+            <xs:element name="cif" type="xs:string"/>
+            <xs:element name="telefono" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:simpleType name="formaCodigo">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="\d{5}"></xs:pattern>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="codigoPedido">
+            <xs:restriction base="xs:string">
+                <xs:pattern value="[p]\d{3}"/>
+            </xs:restriction>
+        </xs:simpleType>
+</xs:schema>

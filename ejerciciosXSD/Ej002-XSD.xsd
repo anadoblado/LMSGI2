@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="marvel">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="superheroe" type="tipoSuperheroe" maxOccurs="unbounded"/>
+            </xs:sequence>
+            <xs:attribute name="creador" type="nombreCreador"/>
+        </xs:complexType>
+    </xs:element>
+
+
+
+    <xs:complexType name="tipoSuperheroe">
+        <xs:choice>
+            <xs:element name="color" type="tipoColor"/>
+            <xs:element name="poder" type="tipoPoder"/>
+            <xs:element name="procedencia"/>
+        </xs:choice>
+        <xs:attribute name="nombre" type="tipoNombreSuperheroe"/>
+    </xs:complexType> 
+
+    <xs:simpleType name="nombreCreador">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="\w+\s\w+"></xs:pattern>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="tipoNombreSuperheroe">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="[A-z].*"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="tipoPoder">
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="150"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="tipoColor">
+        <xs:list itemType="colores"></xs:list>
+    </xs:simpleType>
+
+    <xs:simpleType name="colores">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="rojo"/>
+            <xs:enumeration value="verde"/>
+            <xs:enumeration value="azul"/>
+            <xs:enumeration value="blano"/>
+            <xs:enumeration value="negro"/>
+            <xs:enumeration value="plateado"/>
+        </xs:restriction>
+    </xs:simpleType>
+</xs:schema>

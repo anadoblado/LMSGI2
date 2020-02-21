@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="youtube">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="videos" type="tipoVideos"/>
+                <xs:element name="publicidad" type="tipoPublicidad"/>
+                <xs:element name="idiomasDisponibles" type="tipoIdiomas" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:complexType name="tipoVideos" mixed="true">
+        <xs:all>
+            <xs:element name="video" type="tipoVideo"/>
+        </xs:all>
+    </xs:complexType>
+        
+    <xs:complexType name="tipoVideo" mixed="true">
+        <xs:sequence>
+            <xs:element name="url" type="xs:string"/>
+            <xs:element name="visualizaciones" type="tipoVisualizaciones"/>
+            <xs:element name="comentarios" type="tipoComentarios"/>
+            <xs:element name="subscriptores" type="tipoSubscriptores"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="tipoComentarios">
+        <xs:sequence>
+            <xs:element name="buenos" type="xs:string"/>
+            <xs:element name="malos" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="tipoSubscriptores">
+        <xs:sequence>
+            <xs:element name="subscriptor" type="tipoSubscriptor"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="tipoSubscriptor">
+        <xs:sequence>
+            <xs:element name="fechaSubscripcion" type="tipoFecha"/>
+            <xs:element name="comentarios" type="tipoComentario"/>
+            <xs:element name="correoElectronico" type="tipoCorreo"/>
+            <xs:element name="idioma" type="tipoIdioma"/>
+        </xs:sequence>
+        <xs:attribute name="codigo" type="tipoCodigo"/>
+    </xs:complexType>
+
+    <xs:complexType name="tipoFecha">
+        <xs:attribute name="dia" type="xs:integer"/>
+        <xs:attribute name="mes" type="xs:string"/>
+        <xs:attribute name="anyo" type="tipoAnyo"/>
+    </xs:complexType>
+
+    <xs:simpleType name="tipoAnyo">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="2015"/>
+            <xs:enumeration value="2016"/>
+            <xs:enumeration value="2017"/>
+            <xs:enumeration value="2018"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="tipoCodigo">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="\d{2}-[\[][A-Z]{2}[\]]-\d{2}"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:complexType name="tipoComentario">
+        <xs:attribute name="cantidad" type="xs:string"/>
+    </xs:complexType>
+
+    <xs:complexType name="tipoCorreo">
+        <xs:sequence>
+            <xs:element name="usuario"/>
+            <xs:element name="servidor">
+                <xs:complexType>
+                    <xs:choice>
+                        <xs:element name="gmail" type="tipoVacio"/>
+                        <xs:element name="hotmail" type="tipoVacio"/>
+                        <xs:element name="yahoo" type="tipoVacio"/>
+                    </xs:choice>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+        <xs:attribute name="completo" type="xs:string"/>
+    </xs:complexType>
+
+    <xs:complexType name="tipoVacio"/>
+
+    <xs:simpleType name="tipoIdiomas">
+        <xs:list itemType="tipoIdioma"/>
+    </xs:simpleType>
+    
+    <xs:simpleType name="tipoIdioma">
+        <xs:union memberTypes="idiomaEspanol idiomaIngles"/>
+    </xs:simpleType>
+
+    <xs:simpleType name="idiomaEspanol">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="Alemán"/>
+            <xs:enumeration value="Inglés"/>
+            <xs:enumeration value="Espanol"/>
+            <xs:enumeration value="Francés"/>
+            <xs:enumeration value="Italiano"/>
+            <xs:enumeration value="Inglés"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="idiomaIngles">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="Korean"/>
+            <xs:enumeration value="Germany"/>
+            <xs:enumeration value="Japanese"/>
+            <xs:enumeration value="Chinese"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="tipoVisualizaciones"> 
+    <xs:restriction base="numero-0-100000000">
+      <xs:minInclusive value="0" />
+      <xs:maxInclusive value="200000" />
+    </xs:restriction>  
+  </xs:simpleType>
+  
+  <xs:simpleType name="numero-0-100000000">
+    <xs:restriction base="xs:integer">
+      <xs:minInclusive value="0"/>
+      <xs:maxInclusive value="100000000"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="tipoPublicidad">
+      <xs:sequence>
+          <xs:element name="anuncio" type="tipoAnuncio"/>
+          <xs:element name="anuncioPatrocinado" type="tipoAnuncioPatrocinado"/>
+      </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="tipoAnuncio" mixed="true">
+      <xs:sequence>
+          <xs:element name="empresa" type="xs:string"/>
+          <xs:element name="bannersPorMinuto" type="xs:string"/>
+      </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="tipoAnuncioPatrocinado">
+      <xs:complexContent mixed="true">
+          <xs:extension base="tipoAnuncio">
+              <xs:sequence>
+                <xs:element name="descuentoYouTuve" type="xs:string"/>
+              </xs:sequence>
+              <xs:attribute name="patrocinador" type="xs:string"></xs:attribute>
+          </xs:extension>
+      </xs:complexContent>
+  </xs:complexType>
+
+</xs:schema>
