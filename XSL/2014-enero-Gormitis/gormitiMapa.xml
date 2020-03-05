@@ -1,5 +1,5 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-<?xml-stylesheet href="gormitiMapa.xsl" type="text/xsl"?>
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="gormitiMapa.xsl"?>
 <gormitis>
     <gormiti tribu="volcan">http://webdidacticarafaelmunoz.appspot.com/lmsgi/ejercicios-cap5/examen/2014-enero/gormitis/volcan.png</gormiti>
     <gormiti tribu="agua">http://webdidacticarafaelmunoz.appspot.com/lmsgi/ejercicios-cap5/examen/2014-enero/gormitis/agua.png</gormiti>

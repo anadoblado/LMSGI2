@@ -19,7 +19,7 @@
       <body>
         <table border="1" width="50%">
           <thead>
-            <td></td>
+            <td></td> 
             <td>Gormiti</td>
             <td>Tribu</td>
           </thead>
