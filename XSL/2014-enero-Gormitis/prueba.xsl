@@ -1,19 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xsl:stylesheet
 	xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
-	<xsl:output method="html" encoding="iso-8859-1" />
+  <xsl:output method="html" encoding="iso-8859-1" />
   <xsl:template match="/gormitis">
     <html>
       <head>
         <title>Gormitis</title>
         <style>
           <!--!Fondo de pagina-->
-          table {
-             background: url('<xsl:value-of select="/gormitis/tablero/@url"/>') no-repeat;
-          }
           td {
-               width: 200px;
-               height: 170px;
+          width: 200px;
+          height: 170px;
           }
           img {
           width: 75px;
@@ -23,21 +20,15 @@
         </style>
       </head>
       <body>
-       <table border="1" align="center">
-         <xsl:call-template name="bucleForFila">
-           <xsl:with-param name="i">1</xsl:with-param>
-         </xsl:call-template>
+        <table border="1" align="center">
+          <xsl:call-template name="bucleForFila">
+            <xsl:with-param name="i">1</xsl:with-param>
+          </xsl:call-template>
         </table>
       </body>
     </html>
   </xsl:template>
-  
-<!--template para la imagen
- <xsl:template name="imagenGormiti">
-    <xsl:param name="tribu"/>
-      <img src="{/gormitis/gormiti[@tribu=$tribu]}"></img>
-  </xsl:template> -->
- 
+
 
 
   <xsl:template name="bucleForFila">
@@ -88,17 +79,8 @@
     <td>
       <xsl:for-each select="tablero/gormitiEnMapa">
         <xsl:if test="@x = $x and @y = $y">
-          <xsl:call-template name="imagenGormitiEnMapa">
-            <xsl:with-param name="tribu"><xsl:value-of select="@tribu"/></xsl:with-param>
-          </xsl:call-template>
         </xsl:if>
       </xsl:for-each>
     </td>
   </xsl:template>
-
-  <xsl:template name="imagenGormitiEnMapa">
-    <xsl:param name="tribu"></xsl:param>
-    <img src="{/gormitis/gormiti[@tribu = $tribu]}"/>
-  </xsl:template>
-  
 </xsl:stylesheet>
