@@ -55,8 +55,46 @@
 
   <xsl:template name="bucleForColumna">
     <xsl:param name="i"/>
-    <xsl:param name="y"/>
-    <xsl:if test="$j &lt;=8"></xsl:if>
+    <xsl:param name="j"/>
+    <xsl:if test="$j &lt;=8">
+      <xsl:call-template name="celda">
+        <xsl:with-param name="x">
+          <xsl:value-of select="$j"/>
+        </xsl:with-param>
+        <xsl:with-param name="y">
+          <xsl:value-of select="$i"/>
+        </xsl:with-param>
+      </xsl:call-template>
+      <xsl:call-template name="bucleForColumna">
+        <xsl:with-param name="i">
+          <xsl:value-of select="$i"/>
+        </xsl:with-param>
+        <xsl:with-param name="j">
+          <xsl:value-of select="$j + 1"/>
+        </xsl:with-param>
+      </xsl:call-template>
+    </xsl:if>
   </xsl:template>
+
+  <xsl:template name="celda">
+    <xsl:param name="x"></xsl:param>
+    <xsl:param name="y"></xsl:param>
+    <td>
+      <xsl:for-each select="posicion">
+        <xsl:if test="$x=@x and $y=@y">
+          <xsl:choose>
+            <xsl:when test="@tipo='pared'">
+              <xsl:attribute name="class">pared</xsl:attribute>
+            </xsl:when>
+            <xsl:otherwise>
+              <xsl:attribute name="class">tanque</xsl:attribute>
+            </xsl:otherwise>
+          </xsl:choose>
+        </xsl:if>
+      </xsl:for-each>
+    </td>
+  </xsl:template>
+  
+  
   
 </xsl:stylesheet>
