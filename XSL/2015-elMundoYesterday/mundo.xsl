@@ -20,10 +20,11 @@
         <xsl:call-template name="css"/>
       </head>
       <body>
-        <div style="width: 200px; background:#dbb13b; position: left;">
+       <!-- style="width: 200px; height: 200px; background:#dbb13b; position: left;"-->
+        <div class="menu">
           <table>
             <tbody>
-              <tr class="menu">
+              <tr >
                 <td>
                   <xsl:value-of select="@enlace"/>
                 </td>
