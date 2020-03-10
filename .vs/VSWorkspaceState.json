@@ -1,11 +1,13 @@
 {
   "ExpandedNodes": [
     "",
+    "\\MiHTM_GOT",
+    "\\MiHTM_GOT\\css",
     "\\XSL",
     "\\XSL\\2014-enero-Gormitis",
     "\\XSL\\2015-elMundoYesterday",
     "\\XSL\\2016-marzo-Tanques_con_imagenes"
   ],
-  "SelectedNode": "\\XSL\\2014-enero-Gormitis",
+  "SelectedNode": "\\XSL\\2015-elMundoYesterday\\mundo.xsl",
   "PreviewInSolutionExplorer": false
 }
