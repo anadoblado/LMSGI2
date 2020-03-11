@@ -7,33 +7,24 @@
         <title>HORARIO 1 DAW</title>
         <style>
           img {
-          width: 50px;
+          width: 40px;
+          height: 40px;
           }
           td {
           width: 75px;
           height: 75px;
           empty-cells: show;
           }
-          .puerta {
-          background: #ff543a;
-          }
-          .parde {
-          background: #fccf53;
-          }
-          .ventana {
-          background: #bfd7ff; 
-          }
+
         </style>
       </head>
       <body>
-        <xsl:for-each select="estructuraAula/bloque">
-          <table border="2" align="center">
-            <xsl:call-template name="bucleForFila">
-              <xsl:with-param name="i">1</xsl:with-param>
-            </xsl:call-template>
-          </table>
-        </xsl:for-each>  
-    </body>
+        <table border="1" align="center">
+          <xsl:call-template name="bucleForFila">
+            <xsl:with-param name="i">1</xsl:with-param>
+          </xsl:call-template>
+        </table>
+      </body>
   </html>
   </xsl:template>
 
@@ -85,39 +76,43 @@
     <xsl:param name="x"/>
     <xsl:param name="y"/>
     <td>
-      <xsl:for-each select="bloque">
+      <xsl:for-each select="estructuraAula/bloque">
         <xsl:if test="@x = $x and @y = $y">
           <xsl:choose>
             <xsl:when test="@tipo = 'puerta'">
-              <xsl:attribute name="class">puerta</xsl:attribute>
+              <xsl:attribute name="style">background:#<xsl:value-of select="../color[@tipo='puerta']"/>;</xsl:attribute>
             </xsl:when>
              <xsl:when test="@tipo = 'pared'">
-              <xsl:attribute name="class">pared</xsl:attribute>
+              <xsl:attribute name="style">background:#<xsl:value-of select="../color[@tipo='pared']"/>;</xsl:attribute>
             </xsl:when>
              <xsl:when test="@tipo = 'ventana'">
-              <xsl:attribute name="class">ventana</xsl:attribute>
+              <xsl:attribute name="style">background:#<xsl:value-of select="../color[@tipo='ventana']"/>;</xsl:attribute>
             </xsl:when>
-          
-          
           </xsl:choose>
-          
-         
-        
+          <xsl:value-of select="@tipo"/>
+        </xsl:if>
+      </xsl:for-each>
+      <xsl:for-each select="alumnado/alumno">
+        <xsl:if test="@x = $x and @y= $y">
+          <xsl:choose>
+            <xsl:when test="@sexo = 'H'">
+              <xsl:attribute name="style">background:#b1f0c4;</xsl:attribute>
+              <img>
+                <xsl:attribute name="src"><xsl:value-of select="../imagen[@sexo=H]"/></xsl:attribute>
+              </img>
+            </xsl:when>
+            <xsl:otherwise>
+              <xsl:attribute name="style">background:#e7b1f0;</xsl:attribute>
+              <img>
+                <xsl:attribute name="src"><xsl:value-of select="../imagen[@sexo=M]"/></xsl:attribute>
+              </img>
+            </xsl:otherwise>
+          </xsl:choose>
+          <xsl:value-of select="."/>
         </xsl:if>
       </xsl:for-each>
     </td>
+    
   </xsl:template>
-<!--<xsl:call-template name="imagenAlum">
-            <xsl:with-param name="tipo">
-              <xsl:value-of select="@tipo"/>
-            </xsl:with-param>
-          </xsl:call-template> -->
- 
-  
-  <xsl:template name="imagenAlum">
-    <xsl:param name="tribu"></xsl:param>
-    <img src="{/gormitis/gormiti[@tribu = $tribu]}"/>
-  </xsl:template>
-
 
 </xsl:stylesheet>
