@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-stylesheet type="text/xsl" href="examen1DAWb.xsl"?>
+<?xml-stylesheet type="text/xsl" href="examen1DAW.xsl"?>
 
 <primerDia1DAW>
 	<horario>
@@ -113,7 +113,7 @@
 		<alumno sexo="M" x="7" y="8">Lourdes</alumno>
 		<alumno sexo="H" x="7" y="9">Ramiro</alumno>
 		<alumno sexo="M" x="7" y="10">Rafa</alumno>
-		<imagen sexo="M">recursos/miiMujer.png</imagen>
+		<imagen sexo="M">http://webdidacticarafaelmunoz.appspot.com/lmsgi/ejercicios-cap5/examen/2018-enero/recursos/miiMujer.png</imagen>
 		<imagen sexo="H">http://webdidacticarafaelmunoz.appspot.com/lmsgi/ejercicios-cap5/examen/2018-enero/recursos/miiHombre.png</imagen>
 	</alumnado>
 </primerDia1DAW>
