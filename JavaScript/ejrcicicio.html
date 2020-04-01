@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Mis primeros ejercicios</h2>
+
+<p>1. Realiza un ejercicio que inicialice un array de 150 elementos 
+    enteros al azar entre 0 y 100. Debes mostrar el array en 
+    pantalla y obtener la suma, la media, el menor y el mayor 
+    de todos los números que aparecen en el array.</p>
+<p id = "eje1"></p>
+<script>
+
+    var num = new Array(23);
+    var suma = 0;
+    var media = 0;
+
+    for (let index = 0; index < num.length; index++) {
+        num[index] = Math.round(Math.random()*100);
+        suma += num[index];
+        document.write(num[index] + ", ")
+        
+        
+    }
+    
+    var max = Math.max(...num);
+    document.write( "<br/>" + "el máximo es: " + max);
+    var min = Math.min(...num);
+    document.write( "<br/>"+ 'el mínimo es: ' + min);
+    document.write("<br/>" +"la suma es:" +  suma);
+    media = suma/num.length;
+    document.write("<br/>" + "la media es: " + suma/num.length);
+  
+</script>
+<p>""</p>
+<p>2. Realiza un ejercicio que inicialice un array de 150 
+    elementos enteros al azar entre un límite inferior y 
+    uno superior que debe especificar el usuario.
+     Debes mostrar el array en pantalla para comprobar el 
+     funcionamiento</p>
+
+     <script>
+         var maximo;
+         var n1 = prompt("Introduce el límite máximo");
+         maximo.push(n1);
+         document.write(maximo);
+     </script>
+   
+
+<button type="button"
+onclick="document.getElementById('demo').innerHTML = Date('2020/04/01 14:20')">
+Click me to display Date and Time.</button>
+
+<p id="demo"></p>
+
+</body>
+</html>
