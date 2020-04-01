@@ -36,6 +36,7 @@
               <tr>
                 <td><xsl:value-of select="@desc"/></td>
                 <xsl:for-each select="hora">
+                  <xsl:sort select="@orden" order="ascending"/>
                   <xsl:choose>
                     <xsl:when test="position() mod 2 = 1">
                       <td style="background:#5077cc"><xsl:value-of select="."/></td>

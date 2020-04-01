@@ -1,13 +1,11 @@
 {
   "ExpandedNodes": [
     "",
-    "\\MiHTM_GOT",
-    "\\MiHTM_GOT\\css",
     "\\XSL",
     "\\XSL\\2014-enero-Gormitis",
-    "\\XSL\\2015-elMundoYesterday",
-    "\\XSL\\2016-marzo-Tanques_con_imagenes"
+    "\\XSL\\2016-marzo-Tanques_con_imagenes",
+    "\\XSL\\2019-febrero-Partido_de_baloncesto"
   ],
-  "SelectedNode": "\\XSL\\2015-elMundoYesterday\\mundo.xsl",
+  "SelectedNode": "\\XSL\\2019-febrero-Partido_de_baloncesto",
   "PreviewInSolutionExplorer": false
 }
