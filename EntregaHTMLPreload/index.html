@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Prototipo</title>
+        <link type="text/css" rel="stylesheet" href="estilos.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="index.js"></script>
+         <script>
+             $(document).ready(function(){
+                 $("#hide").click(function(){
+                     $("canvas").hide();
+                     init();
+                 });
+                 $("#show").click(function(){
+                     $("canvas").fadeIn(2000);
+                     init();
+                     
+                 });
+                 $("#ref").click(function(){
+                     $("contenedor").show();
+                     reFresh();
+                     
+                 })
+             });
+         </script>
+    </head>
+    <body>
+        <div class="contenedor">
+            <canvas id="myCanvas" width="900" height="750" style="border:1px solid #abb8b3;" hidden>
+                Your browser does not support the HTML5 canvas tag.</canvas>
+        </div>
+        
+        <p></p>
+        <button id="show" onload="init()">Empezar</button>
+        <button id="hide" onload="init()">Ocultar</button>
+        <button id="ref" onload="reFresh()">Refrescar</button>
+    </body>
+</html>

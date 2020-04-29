@@ -1,0 +1,11 @@
+body {
+    background: #ccc;
+    color: #9c9c9c;
+    font: 14px 'Arial',sans-serif;
+    text-align: center;
+}
+
+div.contenedor {
+    width: 100%;
+    margin: 0 auto;
+}
