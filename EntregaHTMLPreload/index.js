@@ -27,6 +27,10 @@ class Pelota {
             ctx.strokeStyle = "#000000";
             ctx.beginPath();
             ctx.arc(pelota.x, pelota.y, pelota.radio, 0, 2 * Math.PI);
+            ctx.arc(pelota.x, pelota.y, pelota.radio - 2, 0, 2 * Math.PI);
+            ctx.arc(pelota.x, pelota.y, pelota.radio - 4, 0, 2 * Math.PI);
+            ctx.arc(pelota.x, pelota.y, pelota.radio - 6, 0, 2 * Math.PI);
+            ctx.arc(pelota.x, pelota.y, pelota.radio - 8, 0, 2 * Math.PI);
             ctx.stroke();
             for (var i = 0; i < this.rastro.length; i++) {
                 ctx.strokeStyle = "#FF0000";
@@ -160,7 +164,7 @@ function pintarMarco(){
     // Marco inferior
     ctx.fillRect(0, canvas.height - borde, canvas.width, borde);
     // pongo el contador de vidas
-    sacarVidas();
+    //sacarVidas();
 }
 
 function sacarVidas(){
@@ -168,10 +172,10 @@ function sacarVidas(){
         var xV = 20;
         var yV = 20;
         ctx.font = "20px Verdana";
-        ctx.fillStyle = "#cfa708";
+        ctx.fillStyle = "#ec0a0a";
         ctx.fillText("VIDAS: ", xV, yV);
         for(var i = 0; i< vidas; i++){
-            ctx.fillText("vidas - i", xV + borde/2, yV +  borde/2);
+            ctx.fillText( "numero", xV + borde, yV);
             
         }
     }
