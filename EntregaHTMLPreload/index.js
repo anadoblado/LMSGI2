@@ -5,6 +5,13 @@ var pelota;
 var desplazamientoPelota = 10;
 var imgFondo,
     imgCargadas = 0;
+var coordX = 100,
+    coordY = 100,
+    radio = 30;
+var vidas = 4;
+var vidasPerdidas = 0;  
+var borde = 50; 
+var correccion = 30; 
     
 
 
@@ -47,30 +54,42 @@ class Pelota {
             this.agregarPelotaActualARastro();
             this.x += desplazamientoPelota;
             this.pintar();
+            if(this.x > canvas.width - borde - radio - correccion){
+                this.x = canvas.width - radio - borde - correccion/2;
+            }
         }
         moverIzquierda () {
             this.limpiar();
             this.agregarPelotaActualARastro();
             this.x -= desplazamientoPelota;
             this.pintar();
+            if(this.x < borde + radio + correccion){
+                this.x = radio + borde + correccion/2;
+            }
         }
         moverArriba () {
             this.limpiar();
             this.agregarPelotaActualARastro();
             this.y -= desplazamientoPelota;
             this.pintar();
+            if(this.y < borde + radio + correccion){
+                this.y = radio + borde + correccion/2;
+            }
         }
         moverAbajo () {
             this.limpiar();
             this.agregarPelotaActualARastro();
             this.y += desplazamientoPelota;
             this.pintar();
+            if(this.y > canvas.height - borde - radio - correccion){
+                this.y = canvas.height - radio - borde - correccion/2;
+            }
         }
     }
     
 
 function init() {
-    pelota = new Pelota(100, 100, 30);
+    pelota = new Pelota(coordX, coordY, radio);
     preloadImagenes();
 
     canvas = document.getElementById('myCanvas');
@@ -99,7 +118,7 @@ function init() {
 
 function reFresh(){
   //  pelota.rastro = [];
-    pelota = new Pelota(100, 100, 30);
+    pelota = new Pelota(coordX, coordY, radio);
     paintEscena();
 
 }
@@ -121,12 +140,44 @@ function paintEscena(){
     if (imgCargadas == 1){
         paintFondo();
         pelota.pintar();
+        pintarMarco();
     }
 }
 
 function paintFondo(){
     ctx.drawImage(imgFondo, 0, 0);
 }
+
+function pintarMarco(){
+    // color del marco
+    ctx.fillStyle = "#96cf08";
+    // Marco superior
+    ctx.fillRect(0, 0, canvas.width, borde);
+    // Marco izquierdo
+    ctx.fillRect(0, 0, borde, canvas.height);
+    // Marco derecho
+    ctx.fillRect(canvas.width - borde, 0, borde, canvas.height);
+    // Marco inferior
+    ctx.fillRect(0, canvas.height - borde, canvas.width, borde);
+    // pongo el contador de vidas
+    sacarVidas();
+}
+
+function sacarVidas(){
+    if (vidasPerdidas >= 0){
+        var xV = 20;
+        var yV = 20;
+        ctx.font = "20px Verdana";
+        ctx.fillStyle = "#cfa708";
+        ctx.fillText("VIDAS: ", xV, yV);
+        for(var i = 0; i< vidas; i++){
+            ctx.fillText("vidas - i", xV + borde/2, yV +  borde/2);
+            
+        }
+    }
+}
+
+
 /*
 
 
